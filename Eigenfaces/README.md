@@ -1,4 +1,4 @@
-# Eigenfaces — Bonus Linear Algebra Assignment
+# Eigenfaces — Linear Algebra Assignment
 
 This project implements the **Eigenfaces** technique using **PCA computed with SVD**. Face images are loaded, resized, and processed to compute eigenfaces and reconstruct a face using a reduced number of components.
 
