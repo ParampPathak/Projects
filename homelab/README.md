@@ -213,29 +213,6 @@ homelab/
     ├── jellyfin.png
     └── home-assistant.png
 ```
-
-## Screenshots
-
-### Homepage
-
-![Homepage Dashboard](screenshots/homepage.png)
-
-### Grafana
-
-![Grafana Dashboard](screenshots/grafana.png)
-
-### Uptime Kuma
-
-![Uptime Kuma](screenshots/uptime-kuma.png)
-
-### Jellyfin
-
-![Jellyfin](screenshots/jellyfin.png)
-
-### Home Assistant
-
-![Home Assistant](screenshots/home-assistant.png)
-
 ## Security
 
 Sensitive application data is excluded from this repository.
