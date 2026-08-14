@@ -190,6 +190,32 @@ Administrative services are not intentionally exposed directly to the public Int
 - Infrastructure Monitoring
 - Observability
 
+## Screenshots
+
+### Homepage Dashboard
+
+![Homepage Dashboard](screenshots/Homelab%20Dashboard.png)
+
+### Grafana
+
+![Grafana](screenshots/Grafana.png)
+
+### Uptime Kuma
+
+![Uptime Kuma](screenshots/Uptime%20Kuma.png)
+
+### Pi-hole
+
+![Pi-hole](screenshots/Pi-hole.png)
+
+### Home Assistant
+
+![Home Assistant](screenshots/Home%20Assistant.png)
+
+### Jellyfin
+
+![Jellyfin](screenshots/Jellyfin.png)
+
 ## Repository Structure
 
 ```text
@@ -209,11 +235,12 @@ homelab/
 │       ├── services.yaml
 │       └── widgets.yaml
 └── screenshots/
-    ├── homepage.png
-    ├── grafana.png
-    ├── uptime-kuma.png
-    ├── jellyfin.png
-    └── home-assistant.png
+    ├── Homelab Dashboard.png
+    ├── Grafana.png
+    ├── Uptime Kuma.png
+    ├── Pi-hole.png
+    ├── Home Assistant.png
+    └── Jellyfin.png
 ```
 ## Security
 
