@@ -152,22 +152,6 @@ Uptime Kuma
      +-- Node Exporter
 ```
 
-## Networking
-
-Services are hosted on the private home LAN.
-
-| Service | Port |
-| --- | ---: |
-| Jellyfin | 8096 |
-| Uptime Kuma | 3001 |
-| Grafana | 3000 |
-| Prometheus | 9090 |
-| Node Exporter | 9100 |
-| Home Assistant | 8123 |
-| Homepage | 3002 |
-
-Administrative services are not intentionally exposed directly to the public Internet.
-
 ## Technologies
 
 - Proxmox VE
