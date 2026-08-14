@@ -3,6 +3,7 @@
 Self-hosted homelab built on Proxmox VE for virtualization, containerization, network services, monitoring, observability, media streaming, and home automation.
 
 ## Architecture
+<img width="1901" height="905" alt="Homelab Dashboard" src="https://github.com/user-attachments/assets/757cab3f-4abb-4afb-9043-4acc409158ff" />
 
 ```text
                          Home Network
