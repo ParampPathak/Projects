@@ -370,7 +370,9 @@ homelab/
     ├── Uptime Kuma.png
     ├── Pi-hole.png
     ├── Home Assistant.png
-    └── Jellyfin.png
+    ├── Jellyfin.png
+    ├── Nginx.png
+    └── Nginx Link.png
 ```
 
 ## Screenshots
@@ -378,6 +380,14 @@ homelab/
 ### Homepage Dashboard
 
 ![Homepage Dashboard](screenshots/Homelab%20Dashboard.png)
+
+### Nginx Proxy Manager
+
+![Nginx Proxy Manager](screenshots/Nginx.png)
+
+### Trusted HTTPS Connection
+
+![Trusted HTTPS Connection](screenshots/Nginx%20Link.png)
 
 ### Grafana
 
