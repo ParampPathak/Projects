@@ -16,35 +16,24 @@ The environment combines virtual machines, Docker Compose, Ansible, Prometheus/G
              Raspberry Pi                       Proxmox VE
                   |                                 |
                Pi-hole                    +---------+---------+
-            DNS / Ad Blocking             |                   |
+          DNS / Local DNS                 |                   |
                                    Home Assistant VM     Ubuntu Server VM
                                                                |
                                                              Docker
                                                                |
-                      +----------------+------------------------+----------------+
-                      |                |                        |                |
-                   Jellyfin       Uptime Kuma             Monitoring         Homepage
-                      |                |                        |
-                      |          Discord Alerts          +-----+------+
-                      |                                  |            |
-                      |                             Prometheus      Grafana
-                      |                                  |
-                      |                            Node Exporter
-                      |
-                      +--------------------+
-                                           |
-                                  Nginx Proxy Manager
-                                           |
-                              Internal Reverse Proxy
-                                           |
-                                  *.home.arpa + HTTPS
-
-Infrastructure deployment
-          |
-        Ansible
-          |
-          v
-   Docker Compose Stack
+                 +-------------+-------------+-----------------+-------------+
+                 |             |             |                 |             |
+              Jellyfin    Uptime Kuma     Grafana         Prometheus      Homepage
+                                |                              |
+                         Discord Alerts                  Node Exporter
+                 |             |             |                 |             |
+                 +-------------+-------------+-----------------+-------------+
+                                               |
+                                      Nginx Proxy Manager
+                                               |
+                                  Reverse Proxy / TLS
+                                               |
+                                          *.home.arpa
 ```
 
 ## Hardware
