@@ -83,6 +83,8 @@ Service availability monitoring for:
 - Grafana
 - Node Exporter
 
+Alerts are pushed to Discord on status change.
+
 ### Prometheus
 
 Collects time-series infrastructure metrics from Node Exporter.
@@ -123,6 +125,10 @@ Dedicated Raspberry Pi providing network-wide DNS filtering and ad blocking.
 
 Virtualized smart-home management platform integrating supported IoT devices and home automation services.
 
+### Nginx Proxy Manager
+
+Reverse proxy in front of internal services, providing clean hostnames (`*.home.arpa`) and locally-trusted HTTPS via a private `mkcert` certificate authority instead of raw IP:port access.
+
 ## Monitoring Architecture
 
 ```text
@@ -152,6 +158,28 @@ Uptime Kuma
      +-- Node Exporter
 ```
 
+## Automation
+
+Deployment of containerized services is managed with **Ansible** rather than manual `docker compose` commands on each host.
+
+A single playbook (`ansible/site.yml`):
+
+- Ensures required directories exist on the Docker server
+- Syncs local copies of each service's `compose.yaml` to the host
+- Runs `docker compose up -d` for every service
+
+This allows the entire Docker-based stack to be redeployed from a clean host with one command:
+
+```bash
+ansible-playbook -i ansible/inventory.ini ansible/site.yml
+```
+
+## Networking
+
+Services are hosted on the private home LAN and proxied through Nginx Proxy Manager with local HTTPS.
+
+Administrative services are not intentionally exposed directly to the public Internet.
+
 ## Technologies
 
 - Proxmox VE
@@ -159,6 +187,9 @@ Uptime Kuma
 - Ubuntu Server
 - Docker
 - Docker Compose
+- Ansible
+- Nginx Proxy Manager
+- mkcert
 - Home Assistant
 - Jellyfin
 - Uptime Kuma
@@ -173,6 +204,7 @@ Uptime Kuma
 - Containerization
 - Infrastructure Monitoring
 - Observability
+- Infrastructure as Code
 
 ## Screenshots
 
@@ -205,19 +237,23 @@ Uptime Kuma
 ```text
 homelab/
 ├── README.md
-├── .gitignore
+├── ansible/
+│   ├── inventory.ini
+│   ├── site.yml
+│   └── files/
+│       ├── homepage/
+│       │   └── compose.yaml
+│       ├── jellyfin/
+│       │   └── compose.yaml
+│       ├── monitoring/
+│       │   └── compose.yaml
+│       └── uptime-kuma/
+│           └── compose.yaml
 ├── docker/
+│   ├── homepage/
 │   ├── jellyfin/
-│   │   └── compose.yaml
 │   ├── monitoring/
-│   │   ├── compose.yaml
-│   │   └── prometheus.yml
-│   ├── uptime-kuma/
-│   │   └── compose.yaml
-│   └── homepage/
-│       ├── compose.yaml
-│       ├── services.yaml
-│       └── widgets.yaml
+│   └── uptime-kuma/
 └── screenshots/
     ├── Homelab Dashboard.png
     ├── Grafana.png
@@ -226,6 +262,7 @@ homelab/
     ├── Home Assistant.png
     └── Jellyfin.png
 ```
+
 ## Security
 
 Sensitive application data is excluded from this repository.
@@ -245,11 +282,8 @@ Private LAN addresses in example configuration files can also be replaced with p
 
 ## Future Improvements
 
-- Centralized Docker management
 - Additional Grafana dashboards and Prometheus exporters
-- Alerting
-- Automated configuration deployment
+- Automated backups and tested disaster recovery
 - Kubernetes/K3s learning environment
 - Argo CD
 - GitOps
-- Infrastructure as Code
