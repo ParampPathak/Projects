@@ -30,6 +30,7 @@ docker/nginx-proxy-manager/letsencrypt/
 *.retry
 **/vault.yml
 **/vault.yaml
+ansible/inventory.ini
 
 # OS / Editor files
 .DS_Store
