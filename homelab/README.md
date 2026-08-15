@@ -221,7 +221,7 @@ The Ansible configuration contains:
 
 ```text
 ansible/
-├── inventory.ini
+├── inventory.example.ini
 ├── site.yml
 └── files/
 ```
@@ -341,7 +341,7 @@ homelab/
 ├── .gitignore
 │
 ├── ansible/
-│   ├── inventory.ini
+│   ├── inventory.example.ini
 │   ├── site.yml
 │   └── files/
 │
